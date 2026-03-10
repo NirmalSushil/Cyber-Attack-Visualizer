@@ -1,0 +1,37 @@
+INSERT INTO attacks(identifier,type,status,severityScore,source,breachName,breachDate,compromisedData,scanDate) VALUES
+
+('john@gmail.com','EMAIL','Exposed',92,'LeakCheck','LinkedIn Breach','2021','Email, Password','2024-03-01'),
+('alice@yahoo.com','EMAIL','Exposed',85,'LeakCheck','Adobe Breach','2019','Email, Password Hint','2024-03-01'),
+('mark@outlook.com','EMAIL','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+('support@company.com','EMAIL','Exposed',88,'LeakCheck','Dropbox Breach','2020','Email, Password','2024-03-01'),
+('admin@test.com','EMAIL','Exposed',90,'LeakCheck','Twitter Breach','2022','Email, Username','2024-03-01'),
+
+('9876543210','PHONE','Exposed',70,'SpamDB','Telecom Leak','2022','Phone, Name','2024-03-01'),
+('9123456780','PHONE','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+('9988776655','PHONE','Exposed',75,'SpamDB','Marketing Leak','2021','Phone, Location','2024-03-01'),
+('8899001122','PHONE','Exposed',80,'SpamDB','SMS Spam Dataset','2023','Phone','2024-03-01'),
+('9001122334','PHONE','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+
+('192.168.1.10','IP','Safe',0,'Local Scan','None','-','None','2024-03-01'),
+('8.8.8.8','IP','Safe',0,'Google DNS','None','-','None','2024-03-01'),
+('185.220.101.1','IP','Exposed',85,'Tor Exit Node','Botnet Activity','2023','IP Activity','2024-03-01'),
+('45.33.32.156','IP','Exposed',78,'Malware DB','Malware Server','2022','IP','2024-03-01'),
+('103.21.244.0','IP','Safe',0,'Cloudflare','None','-','None','2024-03-01'),
+
+('http://fakebank-login.com','URL','Exposed',95,'Phishing DB','Bank Phishing','2023','Credentials','2024-03-01'),
+('http://paypal-security-check.net','URL','Exposed',90,'Phishing DB','PayPal Scam','2022','Email, Password','2024-03-01'),
+('http://google.com','URL','Safe',0,'Trusted Domain','None','-','None','2024-03-01'),
+('http://amazon-login-security.net','URL','Exposed',93,'Phishing DB','Amazon Scam','2023','Login Credentials','2024-03-01'),
+('http://github.com','URL','Safe',0,'Trusted Domain','None','-','None','2024-03-01'),
+
+('123456789012','AADHAAR','Exposed',95,'Gov Leak','UID Leak','2022','Aadhaar, Address','2024-03-01'),
+('234567890123','AADHAAR','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+('345678901234','AADHAAR','Exposed',90,'Gov Leak','Citizen Data Leak','2023','Aadhaar, Phone','2024-03-01'),
+('456789012345','AADHAAR','Exposed',88,'Gov Leak','Identity Leak','2021','Aadhaar, Address','2024-03-01'),
+('567890123456','AADHAAR','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+
+('ABCDE1234F','PAN','Exposed',87,'Finance Leak','Bank Leak','2022','PAN, Name','2024-03-01'),
+('PQRSX5678K','PAN','Safe',0,'Local Dataset','None','-','None','2024-03-01'),
+('LMNOP4321T','PAN','Exposed',85,'Finance Leak','Credit Agency Leak','2021','PAN, Credit Score','2024-03-01'),
+('ABCDE5678L','PAN','Exposed',89,'Finance Leak','Loan Database Leak','2023','PAN, Address','2024-03-01'),
+('QWERT1234P','PAN','Safe',0,'Local Dataset','None','-','None','2024-03-01');
