@@ -1,16 +1,35 @@
-# React + Vite
+# Cyber Attack Visualizer Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for Cyber Attack Visualizer.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Vite (rolldown-vite)
+- React Router DOM
+- Tailwind CSS
+- Framer Motion
+- Recharts
 
-## React Compiler
+## Scripts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `npm run dev` - Start development server
+- `npm run build` - Build production bundle
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Expanding the ESLint configuration
+## API Endpoint
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The app uses:
+
+- `VITE_API_URL` from environment, or
+- `http://localhost:5000` by default
+
+## Important Paths
+
+- `src/App.jsx` - Main app shell and routes
+- `src/components/Home.jsx` - Scanner page
+- `src/components/DashboardPage.jsx` - User dashboard
+- `src/components/GovDashboard.jsx` - Government dashboard
+- `src/ThemeContext.jsx` - Theme provider
+- `src/userStorage.js` - Local storage auth/session helpers

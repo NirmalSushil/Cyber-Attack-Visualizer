@@ -1,0 +1,4 @@
+[dotenv@17.2.3] injecting env (5) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Cyber Backend running at http://localhost:5000
+Connected to SQLite database at: C:\Users\nirma\Downloads\CAVP(Final Version)\Cyber-Attack-Visualizer-Project\cyber-backend\database.db

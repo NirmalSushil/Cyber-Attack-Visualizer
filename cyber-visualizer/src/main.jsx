@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import "leaflet/dist/leaflet.css";
-// 1. Import BrowserRouter
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from './ThemeContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* 2. Wrap App inside BrowserRouter */}
     <BrowserRouter>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

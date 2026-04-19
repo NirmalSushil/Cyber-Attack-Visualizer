@@ -53,8 +53,11 @@ class Attack {
             `SELECT * FROM attacks
              WHERE identifier LIKE ?
              OR type LIKE ?
+             OR status LIKE ?
+             OR source LIKE ?
+             OR breachName LIKE ?
              ORDER BY scanDate DESC`,
-            [term, term]
+            [term, term, term, term, term]
         );
 
         return rows;

@@ -1,0 +1,21 @@
+
+> cyber-visualizer@0.0.0 build
+> vite build
+
+[36mrolldown-vite v7.2.5 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming...✓ 2639 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                             0.88 kB │ gzip:   0.45 kB
+dist/assets/index-D9sacrBK.css             44.45 kB │ gzip:   9.28 kB
+dist/assets/rolldown-runtime-Cn8xt2Gj.js    0.72 kB │ gzip:   0.42 kB
+dist/assets/LoginPage-HqFRyW__.js          12.27 kB │ gzip:   4.12 kB
+dist/assets/index-C294liu3.js              12.63 kB │ gzip:   3.97 kB
+dist/assets/RegisterPage-386sBYYa.js       13.46 kB │ gzip:   4.51 kB
+dist/assets/Home-DCgKksoQ.js               20.73 kB │ gzip:   6.56 kB
+dist/assets/GovDashboard-CHn-_2hq.js       22.95 kB │ gzip:   5.99 kB
+dist/assets/DashboardPage-DNKyTbL1.js      31.74 kB │ gzip:   8.66 kB
+dist/assets/ui-vendor-CPTm15Xs.js         114.35 kB │ gzip:  37.73 kB
+dist/assets/react-vendor-Cv8RmI8Q.js      230.21 kB │ gzip:  74.40 kB
+dist/assets/charts-vendor-D9bKqunA.js     377.26 kB │ gzip: 109.60 kB
+[32m✓ built in 3.23s[39m

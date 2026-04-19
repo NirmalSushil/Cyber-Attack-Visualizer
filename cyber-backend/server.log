@@ -1,5 +1,0 @@
-[dotenv@17.2.3] injecting env (8) from .env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
-[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
-🚀 Server running on http://localhost:5000
-✅ SQLite Connected Successfully
-✅ Connected to SQLite database at: /home/fardeen-akmal/Cyber-Attack-Visualizer/Cyber-Attack-Visualizer-Project/cyber-backend/attacks.db

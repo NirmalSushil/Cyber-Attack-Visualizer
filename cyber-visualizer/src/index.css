@@ -1,99 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════
+   DARK THEME — Deep Navy Glass
+═══════════════════════════════════════════════ */
+:root,
+[data-theme="dark"] {
+  --bg-base:         #060d1f;
+  --bg-glass:        rgba(12, 22, 50, 0.72);
+  --bg-glass-2:      rgba(12, 22, 50, 0.88);
+  --bg-glass-hover:  rgba(20, 35, 70, 0.72);
+  --bg-inset:        rgba(6, 13, 31, 0.6);
+  --bg-input:        rgba(6, 13, 31, 0.55);
+  --border:          rgba(99, 179, 237, 0.12);
+  --border-subtle:   rgba(99, 179, 237, 0.07);
+  --border-glow:     rgba(14, 165, 233, 0.3);
+  --text-primary:    #e8f4fd;
+  --text-secondary:  #8fb8d8;
+  --text-muted:      #4a7a9b;
+  --text-faint:      #2a4a63;
+  --accent:          #38bdf8;
+  --accent-rgb:      56, 189, 248;
+  --accent-soft:     rgba(56, 189, 248, 0.12);
+  --accent-border:   rgba(56, 189, 248, 0.3);
+  --divider:         rgba(56, 189, 248, 0.08);
+  --shadow-card:     0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-glow:     0 0 40px -10px rgba(56, 189, 248, 0.25);
+  --shadow-modal:    0 32px 80px rgba(0, 0, 0, 0.7);
+  --gov-color:       #22d3ee;
+  --gov-soft:        rgba(34, 211, 238, 0.1);
+}
+
+/* ═══════════════════════════════════════════════
+   LIGHT THEME — Crisp White Glass (vivid, not faded)
+═══════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg-base:         #dde8f5;
+  --bg-glass:        rgba(255, 255, 255, 0.78);
+  --bg-glass-2:      rgba(255, 255, 255, 0.95);
+  --bg-glass-hover:  rgba(235, 245, 255, 0.88);
+  --bg-inset:        rgba(220, 235, 250, 0.6);
+  --bg-input:        rgba(240, 248, 255, 0.9);
+  --border:          rgba(30, 120, 200, 0.18);
+  --border-subtle:   rgba(30, 120, 200, 0.1);
+  --border-glow:     rgba(14, 120, 200, 0.35);
+  --text-primary:    #0c1f3a;
+  --text-secondary:  #1e4a7a;
+  --text-muted:      #3a6a9a;
+  --text-faint:      #6a9aba;
+  --accent:          #0369a1;
+  --accent-rgb:      3, 105, 161;
+  --accent-soft:     rgba(3, 105, 161, 0.1);
+  --accent-border:   rgba(3, 105, 161, 0.28);
+  --divider:         rgba(3, 105, 161, 0.1);
+  --shadow-card:     0 4px 20px rgba(0, 60, 120, 0.1), 0 1px 4px rgba(0, 60, 120, 0.06);
+  --shadow-glow:     0 0 40px -10px rgba(3, 105, 161, 0.2);
+  --shadow-modal:    0 32px 80px rgba(0, 40, 100, 0.25);
+  --gov-color:       #0891b2;
+  --gov-soft:        rgba(8, 145, 178, 0.1);
+}
+
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #020617; /* Deep Midnight Navy / Slate 950 */
-  color: #e2e8f0; /* Slate 200 - Light grey text */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0; padding: 0;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  min-height: 100vh;
 }
 
-/* Custom Scrollbar for Cyber Look */
-::-webkit-scrollbar {
-  width: 10px;
+/* ═══════════════════════════════════════════════
+   GLASS CARD
+═══════════════════════════════════════════════ */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.glass:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+.glass-2 {
+  background: var(--bg-glass-2);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+.glass-inset {
+  background: var(--bg-inset);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
 }
 
-::-webkit-scrollbar-track {
-  background: #0f172a; /* Slate 900 */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #334155; /* Slate 700 */
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #06b6d4; /* Electric Cyan 400 */
-}
-
-/* ===============================
-   CYBER ATTACK MAP GLOW EFFECT
-   =============================== */
-
-.leaflet-interactive {
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
-}
-
-.attack-high {
-  filter:
-    drop-shadow(0 0 6px #ef4444)
-    drop-shadow(0 0 12px #ef4444)
-    drop-shadow(0 0 18px #ef4444);
-}
-
-.attack-medium {
-  filter:
-    drop-shadow(0 0 6px #f97316)
-    drop-shadow(0 0 10px #f97316);
-}
-
-.attack-low {
-  filter:
-    drop-shadow(0 0 6px #06b6d4)
-    drop-shadow(0 0 10px #06b6d4);
-}
-
-/* ===============================
-   PULSING RADAR ATTACK EFFECT
-   =============================== */
-@keyframes cyberPulse {
-  0% { transform: scale(0.8); opacity: 0.8; }
-  50% { transform: scale(1.4); opacity: 0.4; }
-  100% { transform: scale(2); opacity: 0; }
-}
-
-.attack-pulse {
+/* ═══════════════════════════════════════════════
+   SCAN PANEL — vivid highlighted container
+═══════════════════════════════════════════════ */
+.scan-panel {
   position: relative;
+  background: var(--bg-glass-2);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
 }
+[data-theme="dark"]  .scan-panel { border: 1px solid rgba(56,189,248,.28); box-shadow: var(--shadow-card), 0 0 60px -15px rgba(56,189,248,.22), inset 0 1px 0 rgba(255,255,255,.05); }
+[data-theme="light"] .scan-panel { border: 1px solid rgba(3,105,161,.28);  box-shadow: var(--shadow-card), 0 0 60px -15px rgba(3,105,161,.18),  inset 0 1px 0 rgba(255,255,255,.8);  }
 
-.attack-pulse::after {
-  content: "";
+/* top shimmer line */
+.scan-panel::before {
+  content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════
+   SCAN TYPE BUTTONS
+═══════════════════════════════════════════════ */
+.type-btn {
+  cursor: pointer; outline: none; border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: none; padding: 0; display: flex; flex-direction: column;
+  align-items: center; gap: 6px; padding: 14px 8px; border-radius: 14px;
+}
+[data-theme="dark"]  .type-btn-off { background: rgba(12,22,50,.5); border: 1px solid rgba(56,189,248,.08); }
+[data-theme="light"] .type-btn-off { background: rgba(220,235,250,.55); border: 1px solid rgba(3,105,161,.12); }
+[data-theme="dark"]  .type-btn-off:hover { background: rgba(20,35,70,.7); border-color: rgba(56,189,248,.2); transform: translateY(-1px); }
+[data-theme="light"] .type-btn-off:hover { background: rgba(200,225,248,.7); border-color: rgba(3,105,161,.25); transform: translateY(-1px); }
+
+/* ═══════════════════════════════════════════════
+   SCAN INPUT
+═══════════════════════════════════════════════ */
+.scan-input-wrap {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 16px; border-radius: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+[data-theme="dark"]  .scan-input-wrap { background: rgba(6,13,31,.6); border: 1.5px solid rgba(56,189,248,.14); }
+[data-theme="light"] .scan-input-wrap { background: rgba(240,248,255,.9); border: 1.5px solid rgba(3,105,161,.18); }
+
+.scan-input {
+  flex: 1; background: transparent; outline: none; border: none;
+  font-family: 'IBM Plex Mono', monospace; font-size: 14px;
+  padding: 15px 4px; color: var(--text-primary);
+}
+.scan-input::placeholder { color: var(--text-faint); }
+
+/* ═══════════════════════════════════════════════
+   MODE TOGGLE
+═══════════════════════════════════════════════ */
+.mode-toggle { display: flex; border-radius: 12px; overflow: hidden; }
+[data-theme="dark"]  .mode-toggle { background: rgba(6,13,31,.7); border: 1px solid rgba(56,189,248,.12); }
+[data-theme="light"] .mode-toggle { background: rgba(220,235,250,.7); border: 1px solid rgba(3,105,161,.18); }
+
+.mode-btn {
+  padding: 8px 18px; font-size: 11px; font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600; letter-spacing: .12em; cursor: pointer;
+  background: none; border: none; transition: all 0.18s;
+  color: var(--text-faint);
+}
+[data-theme="dark"]  .mode-btn.active { background: rgba(56,189,248,.15); color: #38bdf8; }
+[data-theme="light"] .mode-btn.active { background: rgba(3,105,161,.12); color: #0369a1; }
+.mode-btn:hover:not(.active) { color: var(--text-secondary); }
+
+/* ═══════════════════════════════════════════════
+   PRIMARY BUTTON
+═══════════════════════════════════════════════ */
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  border: none; color: #fff; font-weight: 700; font-size: 15px;
+  font-family: 'DM Sans', sans-serif; border-radius: 14px; cursor: pointer;
+  transition: opacity .15s, transform .1s, box-shadow .2s;
+  box-shadow: 0 4px 24px -4px rgba(14,165,233,.5);
+  width: 100%; padding: 15px 0;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.btn-primary:hover:not(:disabled)  { opacity: .9; box-shadow: 0 6px 32px -4px rgba(14,165,233,.6); transform: translateY(-1px); }
+.btn-primary:active:not(:disabled) { transform: scale(.98) translateY(0); }
+.btn-primary:disabled { opacity: .35; cursor: not-allowed; box-shadow: none; }
+
+/* Government button */
+.btn-gov {
+  background: linear-gradient(135deg, #0891b2 0%, #0369a1 100%);
+  border: none; color: #fff; font-weight: 700;
+  font-family: 'DM Sans', sans-serif; border-radius: 14px; cursor: pointer;
+  transition: all .2s; box-shadow: 0 4px 24px -4px rgba(8,145,178,.45);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-gov:hover { transform: translateY(-1px); box-shadow: 0 6px 32px -4px rgba(8,145,178,.6); opacity: .92; }
+
+/* ═══════════════════════════════════════════════
+   AUTH INPUTS
+═══════════════════════════════════════════════ */
+.auth-input {
+  width: 100%; border-radius: 12px; font-size: 14px;
+  font-family: 'DM Sans', sans-serif; outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  color: var(--text-primary);
+}
+[data-theme="dark"]  .auth-input { background: rgba(6,13,31,.6); border: 1.5px solid rgba(56,189,248,.12); }
+[data-theme="light"] .auth-input { background: rgba(240,248,255,.85); border: 1.5px solid rgba(3,105,161,.16); }
+[data-theme="dark"]  .auth-input:focus { border-color: rgba(56,189,248,.5); background: rgba(6,13,31,.8); box-shadow: 0 0 0 3px rgba(56,189,248,.08); }
+[data-theme="light"] .auth-input:focus { border-color: rgba(3,105,161,.45); background: #fff; box-shadow: 0 0 0 3px rgba(3,105,161,.08); }
+.auth-input::placeholder { color: var(--text-faint); }
+
+/* ═══════════════════════════════════════════════
+   NAVBAR GLASS
+═══════════════════════════════════════════════ */
+.nav-glass {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  transition: background .3s, border-color .3s;
+}
+[data-theme="dark"]  .nav-glass { background: rgba(6,13,31,.85); border-bottom: 1px solid rgba(56,189,248,.1); }
+[data-theme="light"] .nav-glass { background: rgba(255,255,255,.88); border-bottom: 1px solid rgba(3,105,161,.14); }
+
+/* ═══════════════════════════════════════════════
+   TABLE
+═══════════════════════════════════════════════ */
+[data-theme="dark"]  .tbl-head { background: rgba(6,13,31,.95); }
+[data-theme="light"] .tbl-head { background: rgba(240,248,255,.98); }
+[data-theme="dark"]  .tbl-row:hover { background: rgba(56,189,248,.04); }
+[data-theme="light"] .tbl-row:hover { background: rgba(3,105,161,.04); }
+
+/* ═══════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════ */
+.modal-overlay {
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+[data-theme="dark"]  .modal-overlay { background: rgba(4,8,20,.88); }
+[data-theme="light"] .modal-overlay { background: rgba(10,30,60,.55); }
+
+[data-theme="dark"]  .modal-card { background: rgba(8,16,40,.97); }
+[data-theme="light"] .modal-card { background: rgba(250,253,255,.98); }
+
+/* ═══════════════════════════════════════════════
+   GOVERNMENT BADGE / ACCENT
+═══════════════════════════════════════════════ */
+.gov-badge {
+  background: linear-gradient(135deg, rgba(34,211,238,.15), rgba(8,145,178,.1));
+  border: 1px solid rgba(34,211,238,.3);
+  color: var(--gov-color);
+}
+.gov-glow { box-shadow: 0 0 30px -8px rgba(34,211,238,.4); }
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+[data-theme="dark"]  ::-webkit-scrollbar-thumb { background: rgba(56,189,248,.2); border-radius: 4px; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(3,105,161,.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════ */
+@keyframes blink    { 0%,100%{opacity:.25}  50%{opacity:1} }
+@keyframes float    { 0%,100%{transform:translateY(0)}   50%{transform:translateY(-6px)} }
+@keyframes shimmer  { 0%{transform:translateX(-100%)}   100%{transform:translateX(100%)} }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleIn  { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse-ring { 0%{transform:scale(.85);opacity:.8} 100%{transform:scale(2.2);opacity:0} }
+
+.blink         { animation: blink 2s ease-in-out infinite; }
+.float-anim    { animation: float 3s ease-in-out infinite; }
+.fade-slide-up { animation: fadeSlideUp .4s cubic-bezier(.4,0,.2,1) both; }
+.scale-in      { animation: scaleIn .35s cubic-bezier(.4,0,.2,1) both; }
+
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
   border-radius: 50%;
-  background: rgba(239, 68, 68, 0.5); /* Keep pulse red for threats */
-  animation: cyberPulse 2s infinite;
+  background: currentColor;
+  animation: pulse-ring 2s cubic-bezier(.4,0,.6,1) infinite;
+  pointer-events: none;
 }
 
-/* ===============================
-   MAP CYBER STYLE
-   =============================== */
-.leaflet-tile {
-  filter: brightness(0.6) contrast(1.2) hue-rotate(180deg) invert(1); /* Gives a blue/cyan dark mode look */
-}
+/* ═══════════════════════════════════════════════
+   HOVER ROW
+═══════════════════════════════════════════════ */
+.row-hover { transition: background .15s; }
+[data-theme="dark"]  .row-hover:hover { background: rgba(56,189,248,.04); }
+[data-theme="light"] .row-hover:hover { background: rgba(3,105,161,.04); }
 
-.leaflet-popup-content-wrapper {
-  background: #0f172a;
-  color: #e2e8f0;
-  border: 1px solid #06b6d4;
-}
-
-.leaflet-popup-tip {
-  background: #0f172a;
-}
+/* ═══════════════════════════════════════════════
+   STAT CARD VALUE
+═══════════════════════════════════════════════ */
+[data-theme="dark"]  .stat-val { color: #e8f4fd; }
+[data-theme="light"] .stat-val { color: #0c1f3a; }
